@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <h1>Lista de Animais</h1>
+
+    <table>
+        <tr>
+            <th>ID</th>
+            <th>Nome</th>
+        </tr>
+        {% for animal in animais %}
+        <tr>
+            <td>{{ animal.animal_id }}</td>
+            <td>{{ animal.animal_name }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+
+    <p>
+        <a href="/">Back to Home</a>
+    </p>
+{% endblock %}

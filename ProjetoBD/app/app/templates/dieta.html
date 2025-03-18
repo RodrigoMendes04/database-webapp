@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  <h1>Informações sobre a Dieta</h1>
+
+  {% if dieta_info %}
+    <table>
+      <tr>
+        <th>Dieta ID</th>
+        <th>Dieta Nome</th>
+      </tr>
+      <tr>
+        <td>{{ dieta_info.dieta_id }}</td>
+        <td>{{ dieta_info.dieta_name }}</td>
+      </tr>
+    </table>
+  {% else %}
+    <p>Dieta não encontrada.</p>
+  {% endif %}
+
+  <h2>Animais</h2>
+  <ul>
+    {% for animal in animais %}
+      <li>
+        <a href="{{ url_for('get_animal', id=animal.animal_id) }}">
+          {{ animal.animal_name }}
+        </a>
+      </li>
+    {% endfor %}
+  </ul>
+{% endblock %}

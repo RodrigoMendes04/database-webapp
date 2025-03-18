@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  <h1>Resultados da Pesquisa por Dietas</h1>
+
+  <h2>Dieta Encontrada</h2>
+  {% if dietas %}
+    <ul>
+      {% for dietas in dietas %}
+        <li>
+          <a href="{{ url_for('view_continentes_by_habitats', id=habitat.habitat_id) }}">
+            {{ habitat.habitat_name }}
+          </a>
+        </li>
+      {% endfor %}
+    </ul>
+  {% else %}
+    <p>Nenhuma dieta encontrada.</p>
+  {% endif %}
+{% endblock %}

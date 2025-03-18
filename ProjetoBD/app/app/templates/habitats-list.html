@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  <h1>Lista de Habitats</h1>
+
+  {% if habitats %}
+    <ul>
+      {% for habitat in habitats %}
+        <li>
+          <a href="{{ url_for('view_habitats_by_id', id=habitat.habitat_id) }}">
+            {{ habitat.habitat_name }}
+          </a>
+        </li>
+      {% endfor %}
+    </ul>
+  {% else %}
+    <p>Nenhum habitat encontrado.</p>
+  {% endif %}
+{% endblock %}

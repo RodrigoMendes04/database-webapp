@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  <h1>Informações do Continente {{ nome_continentes[0].continente_name }}</h1>
+
+  {% if nome_continentes %}
+    <table>
+      <tr>
+        <th>Continente ID</th>
+        <th>Continente Nome</th>
+      </tr>
+      <tr>
+        <td>{{ nome_continentes[0].continente_id }}</td>
+        <td>{{ nome_continentes[0].continente_name }}</td>
+      </tr>
+    </table>
+  {% else %}
+    <p>Continente não encontrado.</p>
+  {% endif %}
+
+  <h2>Lista de Habitats</h2>
+  <ul>
+    {% for habitat in habitats %}
+      <li>{{ habitat.habitat_name }}</li>
+    {% endfor %}
+  </ul>
+
+  <h2>Animais neste Continente</h2>
+  <ul>
+    {% for animal in animais %}
+      <li>
+        <a href="{{ url_for('get_animal', id=animal.animal_id) }}">
+          {{ animal.animal_name }}
+        </a>
+      </li>
+    {% endfor %}
+  </ul>
+{% endblock %}

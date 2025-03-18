@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h1>Informações sobre o Habitat {{ habitat.habitat_name }}</h1>
+
+{% if habitat %}
+  <table>
+    <tr>
+      <th>Habitat ID</th>
+      <th>Habitat Nome</th>
+    </tr>
+    <tr>
+      <td>{{ habitat.habitat_id }}</td>
+      <td>{{ habitat.habitat_name }}</td>
+    </tr>
+  </table>
+{% else %}
+  <p>Habitat não encontrado.</p>
+{% endif %}
+
+  <h2>Lista de Animais</h2>
+  <ul>
+    {% for animal in animais %}
+      <li>
+        <a href="{{ url_for('get_animal', id=animal.animal_id) }}">
+          {{ animal.animal_name }}
+        </a>
+      </li>
+    {% endfor %}
+  </ul>
+{% endblock %}

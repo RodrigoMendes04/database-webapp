@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  <h1>Lista de Dietas</h1>
+
+  <ul>
+    {% for dietas in dietas %}
+      <li>
+        <a href="{{ url_for('view_animals_by_dieta', id=dietas.dieta_id) }}">
+          {{ dietas.dieta_name }}
+        </a>
+      </li>
+    {% endfor %}
+  </ul>
+{% endblock %}

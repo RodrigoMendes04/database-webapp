@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  <h1>Detalhes do Animal</h1>
+
+  {% if animal %}
+    <table>
+      <tr>
+        <th>ID</th>
+        <th>Nome</th>
+        <th>Dieta</th>
+      </tr>
+      <tr>
+        <td>{{ animal.animal_id }}</td>
+        <td>{{ animal.animal_name }}</td>
+        <td>{{ animal.dieta }}</td>
+      </tr>
+    </table>
+  {% else %}
+    <p>Animal não encontrado.</p>
+  {% endif %}
+
+  <h2>Lista de Habitats</h2>
+  <ul>
+    {% for habitat in habitat %}
+      <li>{{ habitat.habitat_name }}</li>
+    {% endfor %}
+  </ul>
+
+  <h2>Lista de Continentes</h2>
+  <ul>
+    {% for continent in continente %}
+      <li>{{ continent.continente_name }}</li>
+    {% endfor %}
+  </ul>
+{% endblock %}
